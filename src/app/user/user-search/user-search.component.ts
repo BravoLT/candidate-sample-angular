@@ -6,6 +6,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {filter, takeUntil} from "rxjs/operators";
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   templateUrl: './user-search.component.html',
@@ -51,4 +52,6 @@ export class UserSearchComponent implements AfterViewInit, OnDestroy, OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableSource.filter = filterValue.trim().toLowerCase();
   }
+
+  
 }

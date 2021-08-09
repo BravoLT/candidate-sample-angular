@@ -13,7 +13,7 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    browserName: 'chrome'
+    'browserName': 'chrome'
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
@@ -28,7 +28,7 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
-    jasmine.getEnv().addReporter(new SpecReporter({
+    jasmine.getEnv().addReporter(new SpecReporter({ 
       spec: {
         displayStacktrace: StacktraceOption.PRETTY
       }

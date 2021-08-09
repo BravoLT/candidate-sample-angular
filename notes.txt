@@ -1,0 +1,72 @@
+Notes on test completion
+
+received link from Bill
+https://trello.com/c/3DklPIG8/9-0009-frontend-add-edit-and-delete-icons-to-the-user-search-component
+
+cloned app from trello
+made github repo for me to save versions to
+first commit pushed to remote so I can access on other computers
+https://github.com/vladsolokha/user-form-angular
+
+npm i
+
+needed angular cli so in terminal $ npm install -g @angular/cli
+
+googled material.angular.io/components documentation as reference to help build app
+
+https://material.angular.io/components/categories
+
+npm serve
+
+played with the app, to understand problem and see how it functions
+
+created 2 buttons, 'edit' and 'delete' in /src/user/user-search/user-search.component.html
+made them different colors according to documentation
+
+===---the above took me maybe 20 min---===
+
+the below is not so easy. 
+received message from Bill saying backend was messed up. 
+local port 9999 is not being received by app local port 3200
+
+received a java backend. Make it work by download/install Java 11 and mvn
+
+struggled to figure out Maven installation on Mac; specifically environment variables 
+and adding mvn's bin directory of apache-maven to the PATH env variables
+used vim to edit .bash_profile and add PATH 
+
+Had easier time with windows configuration of the above
+
+But finally, can focus on editing backend and frontend, connecting the two and plugging and chugging.
+
+Removed tool tips because not needed due to words are already on button UIs
+
+Moved to 'getting route information'
+if name is selected from table and if user clicks on edit button 
+then route information from user-search.component to user-form.component to edit
+
+using https://angular.io/guide/router#getting-route-information
+as a guide to understand how components are routed
+
+using https://angular.io/guide/router#fetch-data-before-navigating
+to understand how to get data from table and route to form component
+
+found similar app from Jason Watmore https://jasonwatmore.com/post/2020/12/15/angular-11-crud-example-with-reactive-forms#users-add-edit-component-ts
+cloned his github repo and tried to understand how his edit button works to pre-populate form Fields
+
+looks like his is the closest I've gotten. 
+with the fakeBackend he helps me understand how front/back are connected
+
+I'm thinking that I need to access the backend user id and when user is selected from table
+I'll use the id data to route to the form component user id's name object
+All this is routerLinked when the edit button is clicked
+
+I need to figure out how backend is talking with frontend to pinpoint access to user id
+
+learned what services and DI are:
+service is class with narrow, well-defined purpose as to increase modularity and reusability
+service can inject their process/value/function/feature into any component which makes them readily available
+use @injectable() decorator to allow injection of service into component as dependency (class)
+
+UserFacade is a service used in user-search that uses a method dispatchRetrieve()
+to get 
