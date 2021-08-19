@@ -1,16 +1,20 @@
-import {initialUserState, UserState} from "./user.state";
-import {UserActionType, UserRetrieveSuccessAction} from "./user.actions";
-import {Action} from "@ngrx/store";
+import {initialUserState, UserState} from './user.state';
+import { UserActionType, UserCreateSuccessAction, UserRetrieveSuccessAction } from './user.actions';
+import {Action} from '@ngrx/store';
 
 export function userReducer(
   state: UserState = initialUserState,
   action: Action
 ): UserState {
-  switch(action.type){
+  switch (action.type){
     case UserActionType.Retrieve:
       return initialUserState;
     case UserActionType.RetrieveSuccess:
-      return handleUserRetrieveSuccessAction(state, <UserRetrieveSuccessAction>action);
+      return handleUserRetrieveSuccessAction(state, action as UserRetrieveSuccessAction);
+    case UserActionType.Create:
+      return state;
+    case UserActionType.CreateSuccess:
+      return handleUserCreateSuccessAction(state, action as UserCreateSuccessAction);
     default:
       return state;
   }
@@ -23,5 +27,15 @@ function handleUserRetrieveSuccessAction(
   return {
     ...state,
     data: action.data
-  }
+  };
+}
+
+function handleUserCreateSuccessAction(
+  state: UserState,
+  action: UserCreateSuccessAction,
+): UserState {
+  return {
+    ...state,
+    data: [...state.data, action.user]
+  };
 }

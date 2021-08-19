@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User, UserState} from "../../store/user/user.state";
+import { User, UserSaveDto } from '../../store/user/user.state';
 import {Observable} from "rxjs";
 import {AppComponent} from "../../../app.component";
 
@@ -14,4 +14,9 @@ export class UserService {
   retrieve(): Observable<User[]> {
     return this.httpClient.post<User[]>(AppComponent.api.user.retrieve, {});
   }
+
+  create(user: UserSaveDto): Observable<User> {
+    return this.httpClient.post<User>(AppComponent.api.user.create, user);
+  }
+
 }
