@@ -9,6 +9,13 @@ export interface User {
   updated: string;
 }
 
+export interface UserSaveDto {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  phoneNumber: string;
+}
+
 export const initialUserState: UserState = {
   data: []
 };

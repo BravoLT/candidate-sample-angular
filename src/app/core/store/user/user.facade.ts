@@ -3,8 +3,8 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
 import {Observable} from "rxjs";
 import {userStateSelector} from "./user.selector";
-import {UserRetrieveAction} from "./user.actions";
-import {UserState} from "./user.state";
+import { UserCreateAction, UserRetrieveAction } from './user.actions';
+import { UserSaveDto, UserState } from './user.state';
 
 @Injectable({ providedIn: 'root' })
 export class UserFacade {
@@ -12,6 +12,10 @@ export class UserFacade {
 
   dispatchRetrieve(): void {
     this.store.dispatch(new UserRetrieveAction());
+  }
+
+  dispatchCreate(user: UserSaveDto): void {
+    this.store.dispatch(new UserCreateAction(user));
   }
 
   retrieve(): Observable<UserState> {
