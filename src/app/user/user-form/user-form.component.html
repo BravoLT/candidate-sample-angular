@@ -1,18 +1,18 @@
 <div class="form-header">
   User Form
 </div>
-<div class="form-container">
+<div class="form-container" *ngIf="!!user">
   <mat-form-field appearance="fill">
     <mat-label>First Name</mat-label>
-    <input matInput>
+    <input matInput value="{{user.firstName}}">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Middle Name</mat-label>
-    <input matInput>
+    <input matInput value="{{user.middleName}}">
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Last Name</mat-label>
-    <input matInput>
+    <input matInput value="{{user.lastName}}">
   </mat-form-field>
   <div class="button-container">
     <button mat-raised-button color="primary">

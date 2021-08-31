@@ -6,6 +6,9 @@ export interface UserState {
 export interface User {
   id: string;
   name: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
   updated: string;
 }
 
