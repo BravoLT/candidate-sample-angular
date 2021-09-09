@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
 
   static readonly api = {
     user: {
-      retrieve: `api/user/retrieve`,
+      retrieve: `${environment.backend}/user/retrieve`,
     },
   };
 }
