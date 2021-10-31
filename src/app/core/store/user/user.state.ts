@@ -4,9 +4,13 @@ export interface UserState {
 }
 
 export interface User {
-  id: string;
-  name: string;
-  updated: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  role: string;
 }
 
 export const initialUserState: UserState = {
