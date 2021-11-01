@@ -12,6 +12,7 @@ export class AppComponent {
   static readonly api = {
     user: {
       retrieve: `${environment.backend}/user/retrieve?size=1000`,
+      create: `${environment.backend}/user/create`
     },
   };
 }

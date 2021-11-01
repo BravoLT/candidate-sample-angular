@@ -1,5 +1,5 @@
 
 export const environment = {
-  backend: "https://java.bravolt.dev",
+  backend: "http://localhost:9999",
   production: true
 };

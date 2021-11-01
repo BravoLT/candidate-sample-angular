@@ -2,24 +2,42 @@
   User Form
 </div>
 <div class="form-container">
-  <mat-form-field appearance="fill">
-    <mat-label>First Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Middle Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Last Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <div class="button-container">
-    <button mat-raised-button color="primary">
-      Save
-    </button>
-    <button routerLink="/user" mat-raised-button color="accent">
-      Back
-    </button>
-  </div>
+  <form #loginForm=ngForm (ngSubmit)="submit(loginForm)">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput ngModel name="firstName" >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Middle Name</mat-label>
+        <input matInput ngModel name="middleName">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput ngModel name="lastName">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput ngModel name="phoneNumber">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput ngModel name="email">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput ngModel name="password">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <input matInput ngModel name="role">
+      </mat-form-field>
+      <div class="button-container">
+        <button mat-raised-button color="primary">
+          Save
+        </button>
+        <button routerLink="/user" mat-raised-button color="accent">
+          Back
+        </button>
+      </div>
+  </form>
 </div>
