@@ -12,6 +12,8 @@ export class UserService {
   constructor(private httpClient: HttpClient) {}
 
   retrieve(): Observable<User[]> {
-    return this.httpClient.post<User[]>(AppComponent.api.user.retrieve, {});
+    const resposne = this.httpClient.get<User[]>(AppComponent.api.user.retrieve, {});
+    console.log(resposne);
+    return resposne;
   }
 }

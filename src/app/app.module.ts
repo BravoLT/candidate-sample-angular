@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,20 +19,21 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     UserFormComponent,
     UserSearchComponent,
   ],
-  imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    CoreModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'user', redirectTo: 'user/search', pathMatch: 'full' },
-      {path: 'user/form', component: UserFormComponent },
-      {path: 'user/search', component: UserSearchComponent },
-      {path: '', component: HomeComponent },
-      {path: '**', redirectTo: '', pathMatch: 'full' },
-    ]),
-    SharedModule,
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        CoreModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            {path: 'user', redirectTo: 'user/search', pathMatch: 'full'},
+            {path: 'user/form', component: UserFormComponent},
+            {path: 'user/search', component: UserSearchComponent},
+            {path: '', component: HomeComponent},
+            {path: '**', redirectTo: '', pathMatch: 'full'},
+        ]),
+        SharedModule,
+        FormsModule,
+    ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
 })

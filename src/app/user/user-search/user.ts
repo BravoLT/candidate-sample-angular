@@ -1,8 +1,3 @@
-
-export interface UserState {
-  data: User[];
-}
-
 export interface User {
   firstName: string;
   middleName: string;
@@ -12,7 +7,3 @@ export interface User {
   password: string;
   role: string;
 }
-
-export const initialUserState: UserState = {
-  data: []
-};
