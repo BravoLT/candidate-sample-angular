@@ -19,6 +19,16 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated</th>
       <td mat-cell *matCellDef="let i">{{ i.updated }}</td>
     </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+      <td mat-cell *matCellDef="let i">
+        <button (click)="editRecord(i)" mat-icon-button ><mat-icon>edit</mat-icon></button></td>
+    </ng-container>
+ 
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
+      <td mat-cell *matCellDef="let i"><button mat-icon-button ><mat-icon>delete</mat-icon></button></td>
+    </ng-container>
 
     <!-- Print Fields -->
     <tr mat-header-row *matHeaderRowDef="tableFields"></tr>

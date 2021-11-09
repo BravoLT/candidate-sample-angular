@@ -6,6 +6,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {filter, takeUntil} from "rxjs/operators";
+import {UserService} from "../../core/service/user/user.service";
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './user-search.component.html',
@@ -13,14 +15,14 @@ import {filter, takeUntil} from "rxjs/operators";
 })
 export class UserSearchComponent implements AfterViewInit, OnDestroy, OnInit {
 
-  constructor(private userFacade: UserFacade) {}
+  constructor(private userFacade: UserFacade, private userSrvice: UserService, private router: Router) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   destroyed$ = new Subject<void>();
   state: UserState | undefined;
-  tableFields: string[] = ['name', 'updated'];
+  tableFields: string[] = ['name', 'updated','edit','delete'];
   tableSource!: MatTableDataSource<User>;
 
   ngAfterViewInit(): void {
@@ -50,5 +52,12 @@ export class UserSearchComponent implements AfterViewInit, OnDestroy, OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  editRecord(rowData:any){
+    
+    this.userSrvice.rowData=rowData;
+    this.router.navigate(['/user/form'])
+
   }
 }
