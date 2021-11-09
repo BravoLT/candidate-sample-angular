@@ -4,15 +4,15 @@
 <div class="form-container">
   <mat-form-field appearance="fill">
     <mat-label>First Name</mat-label>
-    <input matInput>
+    <input [(ngModel)]="firstName" [value]="firstName"  matInput>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Middle Name</mat-label>
-    <input matInput>
+    <input [(ngModel)]="middleName" [value]="middleName" matInput>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Last Name</mat-label>
-    <input matInput>
+    <input [(ngModel)]="lastName" [value]="lastName" matInput>
   </mat-form-field>
   <div class="button-container">
     <button mat-raised-button color="primary">
