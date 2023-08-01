@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {environment} from "../environments/environment";
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,11 @@ import {environment} from "../environments/environment";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular Sample';
 
   static readonly api = {
     user: {
       retrieve: `${environment.backend}/user/retrieve?size=1000`,
     },
   };
+  title = 'candidate-sample-angular';
 }
