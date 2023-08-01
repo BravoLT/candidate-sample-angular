@@ -4,13 +4,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {UserFormComponent} from './user/user-form/user-form.component';
 import {UserSearchComponent} from './user/user-search/user-search.component';
-import {RouterModule} from '@angular/router';
+import {RouterModule} from "@angular/router";
 import {HomeComponent} from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CoreModule} from './core/core.module';
-import {SharedModule} from './shared/shared.module';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {CoreModule} from "./core/core.module";
+import {SharedModule} from "./shared/shared.module";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     UserSearchComponent,
   ],
   imports: [
-    MatFormFieldModule,
     BrowserAnimationsModule,
     BrowserModule,
     CoreModule,
