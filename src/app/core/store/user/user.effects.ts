@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {UserService} from "../../service/user/user.service";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {Observable, of} from "rxjs";
-import {Action} from "@ngrx/store";
-import {UserActionType, UserRetrieveSuccessAction} from "./user.actions";
-import {catchError, map, switchMap} from "rxjs/operators";
-import {ErrorAction} from "../error/error.actions";
+import {Injectable} from '@angular/core';
+import {UserService} from '../../service/user/user.service';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {Observable, of} from 'rxjs';
+import {Action} from '@ngrx/store';
+import {catchError, map, switchMap} from 'rxjs/operators';
+import {UserActions} from './user.actions';
+import {ErrorActions} from '../error/error.actions';
 
 @Injectable()
 export class UserEffects {
@@ -13,11 +13,11 @@ export class UserEffects {
 
   retrieve$: Observable<Action> = createEffect(() => {
     return this.actions$.pipe(
-      ofType(UserActionType.Retrieve),
+      ofType(UserActions.retrieveUsers),
       switchMap(() => {
         return this.service.retrieve().pipe(
-          map(response => new UserRetrieveSuccessAction(response)),
-          catchError(error => of(new ErrorAction(error)))
+          map(response => UserActions.retrieveUsersSuccess(response)),
+          catchError(error => of(ErrorActions.error(error)))
         );
       })
     );

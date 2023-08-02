@@ -1,12 +1,8 @@
-import { Action } from '@ngrx/store';
+import {createActionGroup} from '@ngrx/store';
 
-export enum ErrorActionType {
-  Error = '[Error] Error',
-}
-
-export class ErrorAction implements Action {
-  readonly type = ErrorActionType.Error;
-  constructor(public e: any) {}
-}
-
-export type ErrorActions = ErrorAction;
+export const ErrorActions = createActionGroup({
+    source: 'ErrorActions',
+    events: {
+      Error: (error: any) => ({error})
+    }
+});

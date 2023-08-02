@@ -1,16 +1,10 @@
-import {Action} from "@ngrx/store";
-import {User} from "./user.state";
+import {createActionGroup, emptyProps} from '@ngrx/store';
+import {User} from './user.state';
 
-export enum UserActionType {
-  Retrieve = '[User] Retrieve',
-  RetrieveSuccess = '[User] Retrieve Success'
-}
-
-export class UserRetrieveAction implements Action {
-  readonly type = UserActionType.Retrieve;
-}
-
-export class UserRetrieveSuccessAction implements Action {
-  readonly type = UserActionType.RetrieveSuccess;
-  constructor(public data: User[]){}
-}
+export const UserActions = createActionGroup({
+  source: 'UserActions',
+  events: {
+    'Retrieve Users': emptyProps(),
+    'Retrieve Users Success': (data: User[]) => ({data}),
+  },
+});
