@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {UserFacade} from "../../core/store/user/user.facade";
-import {Subject} from "rxjs";
-import {User, UserState} from "../../core/store/user/user.state";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
-import {filter, takeUntil} from "rxjs/operators";
+import {UserFacade} from '../../core/store/user/user.facade';
+import {Subject} from 'rxjs';
+import {User, UserState} from '../../core/store/user/user.state';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import {filter, takeUntil} from 'rxjs/operators';
 
 @Component({
   templateUrl: './user-search.component.html',
@@ -47,7 +47,7 @@ export class UserSearchComponent implements AfterViewInit, OnDestroy, OnInit {
     this.userFacade.dispatchRetrieve();
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableSource.filter = filterValue.trim().toLowerCase();
   }
